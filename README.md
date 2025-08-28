@@ -1,4 +1,13 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# React Quiz App
+
+A modern quiz application built with React, TypeScript, Vite, React Router, and Tailwind CSS.
+
+## Features
+
+- Interactive quiz experience
+- Multiple routes: Home, Questions, Quiz, Welcome
+- Responsive design with Tailwind CSS
+- Modular component structure
 
 ## Getting Started
 
