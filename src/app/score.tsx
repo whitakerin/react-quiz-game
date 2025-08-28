@@ -12,7 +12,7 @@ export default function Score({ show, result, onNext }: ScoreProps) {
     <div className="flex items-center justify-center min-h-screen px-4">
       <div className="max-w-4xl w-full flex flex-col lg:flex-row items-center lg:items-start gap-12">
         <div className=" lg:w-1/2 text-center lg:text-left">
-          <div className="text-2xl lg:text-4xl font-light mb-4 leading-tight">Your score:</div>
+          <div className="text-2xl lg:text-4xl font-light mb-4 leading-tight">Quiz Completed</div>
           <div className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">Your score:</div>
           <div className="my-5">
             <div className="w-full bg-slate-300 dark:bg-slate-700 p-10 rounded text-center">
