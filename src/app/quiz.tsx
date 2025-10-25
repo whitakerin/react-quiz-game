@@ -12,7 +12,7 @@ enum AlphaIndex {
 }
 
 export default function Quiz({ show, onSumbit }: QuizProps) {
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState([0,0,0,0,0,0,0,0,0,0]);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [index, setIndex] = useState(0);
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
@@ -22,7 +22,7 @@ export default function Quiz({ show, onSumbit }: QuizProps) {
   useEffect(() => {
     setQuestions(allQuestions);
     setIndex(0);
-    setScore(0);
+    setScore([0,0,0,0,0,0,0,0,0,0]);
     setShowIsCorrect(false);
     setSelectedOptionIndex(null);
   }, [show]);
@@ -35,18 +35,18 @@ export default function Quiz({ show, onSumbit }: QuizProps) {
   };
 
   const submitOption = () => {
+    // needs changing to get vector for question
     if (selectedOptionIndex === null) return;
     // Check if the selected option is correct
     let newScore = score;
-    if (questions[index].options[selectedOptionIndex].isCorrect) {
-      newScore += 1;
-      setScore(newScore);
+    //this may need debugging
+    for (var i=0; i < 10; i++){
+      newScore[i] += questions[index].options[selectedOptionIndex].vec[i]
     }
-    setShowIsCorrect(true);
+    setScore(newScore);
     setTimeout(() => {
       setSelectedOptionIndex(null);
       // Move to the next question or finish the quiz
-      setShowIsCorrect(false);
       if (index < questions.length - 1) {
         setIndex(index + 1);
         setSelectedOptionIndex(null); // Reset selected option for next question
@@ -81,7 +81,7 @@ export default function Quiz({ show, onSumbit }: QuizProps) {
               className={`
                   flex items-center p-4 rounded-xl cursor-pointer transition-all duration-200 w-full text-left shadow-lg border border-slate-300 dark:border-slate-600 ${
                     showIsCorrect
-                      ? option.isCorrect
+                      ? option.vec
                         ? "bg-green-700 dark:bg-green-900"
                         : "bg-red-800 dark:bg-red-900"
                       : selectedOptionIndex === i

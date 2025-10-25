@@ -5,8 +5,8 @@ import Quiz from "./quiz";
 import Score from "./score";
 
 export interface QuizResult {
-  score: number;
-  total: number;
+  score: number[]; //this needs to be a list
+  total: number; // we dont need a total? maybe do need to keep questions 
 }
 export interface QuizProps {
   show: boolean;
